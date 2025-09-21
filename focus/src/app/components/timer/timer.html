@@ -1,0 +1,45 @@
+<div class="timer-container">
+    <!-- Timer Circle -->
+    <div class="timer-circle">
+        <svg class="timer-svg" viewBox="0 0 250 250">
+            <!-- Background circle -->
+            <circle cx="125" cy="125" r="120" fill="none" stroke="#f0f0f0" stroke-width="8" />
+            <!-- Progress circle -->
+            <circle cx="125" cy="125" r="120" fill="none" stroke="var(--accent-orange)" stroke-width="8"
+                stroke-linecap="round" [attr.stroke-dasharray]="strokeDasharray"
+                [attr.stroke-dashoffset]="strokeDashoffset" class="progress-circle" />
+        </svg>
+
+        <!-- Timer Content -->
+        <div class="timer-content">
+            <div class="timer-display">
+                <span class="time-text">{{ displayTime }}</span>
+                <span class="time-label">minutos restantes</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Task -->
+    <div class="current-task">
+        <span class="task-label">Tarea actual</span>
+        <h3 class="task-title">{{ currentTask }}</h3>
+    </div>
+
+    <!-- Timer Controls -->
+    <div class="timer-controls">
+        <button *ngIf="state === 'stopped' || state === 'paused'" class="control-btn primary" (click)="startTimer()">
+            <span class="btn-icon">▶</span>
+            Iniciar
+        </button>
+
+        <button *ngIf="state === 'running'" class="control-btn secondary" (click)="pauseTimer()">
+            <span class="btn-icon">⏸</span>
+            Pausar
+        </button>
+
+        <button *ngIf="state !== 'stopped'" class="control-btn tertiary" (click)="stopTimer()">
+            <span class="btn-icon">⏹</span>
+            Omitir
+        </button>
+    </div>
+</div>

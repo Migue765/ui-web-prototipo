@@ -1,0 +1,47 @@
+<div [class]="cardClasses" (click)="onCardClick()">
+    <!-- Status Checkbox -->
+    <div class="task-checkbox" *ngIf="showCheckbox" (click)="$event.stopPropagation()">
+        <input type="checkbox" [checked]="isCompleted" (change)="onToggleTask()" [id]="'task-' + task.id"
+            class="checkbox-input" />
+        <label [for]="'task-' + task.id" class="checkbox-label">
+            <div [class]="statusClasses"></div>
+        </label>
+    </div>
+
+    <!-- Task Content -->
+    <div class="task-content">
+        <div class="task-header">
+            <h3 class="task-title" [class.completed]="isCompleted">
+                {{ task.title }}
+            </h3>
+
+            <!-- Priority Badge -->
+            <div *ngIf="showPriority" [class]="priorityClasses">
+                {{ priorityText }}
+            </div>
+        </div>
+
+        <p class="task-description" [class.completed]="isCompleted">
+            {{ task.description }}
+        </p>
+
+        <!-- Task Footer -->
+        <div class="task-footer" *ngIf="showDueDate && task.dueDate">
+            <div class="due-date" [class.overdue]="isOverdue">
+                <span class="due-label">Due:</span>
+                <span class="due-text">{{ dueDateText }}</span>
+            </div>
+
+            <div *ngIf="isCompleted" class="completion-status">
+                Completed
+            </div>
+        </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="task-actions">
+        <button class="delete-btn" (click)="onDeleteTask($event)" aria-label="Delete task" type="button">
+            ×
+        </button>
+    </div>
+</div>

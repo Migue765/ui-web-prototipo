@@ -1,0 +1,21 @@
+<div [class]="containerClasses">
+    <label *ngIf="label" class="input-label" [for]="'input-' + label">
+        {{ label }}
+        <span *ngIf="required" class="required-indicator">*</span>
+    </label>
+
+    <div class="input-wrapper">
+        <input [id]="'input-' + label" [class]="inputClasses" [type]="type" [placeholder]="placeholder"
+            [disabled]="disabled" [required]="required" [value]="value" (input)="onInput($event)" (focus)="onFocus()"
+            (blur)="onBlur()" />
+    </div>
+
+    <div class="input-messages" *ngIf="errorMessage || helperText">
+        <div *ngIf="hasError" class="error-message">
+            {{ errorMessage }}
+        </div>
+        <div *ngIf="!hasError && helperText" class="helper-text">
+            {{ helperText }}
+        </div>
+    </div>
+</div>

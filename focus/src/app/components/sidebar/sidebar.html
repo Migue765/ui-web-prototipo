@@ -1,0 +1,35 @@
+<aside class="sidebar">
+    <!-- Logo -->
+    <div class="sidebar-header">
+        <div class="logo">
+            <div class="logo-icon">F</div>
+            <span class="logo-text">FOCUS</span>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+        <ul class="nav-list">
+            <li *ngFor="let item of menuItems" class="nav-item" [class.active]="item.active"
+                (click)="onMenuItemClick(item)">
+                <a class="nav-link">
+                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-label">{{ item.label }}</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- User Profile -->
+    <div class="sidebar-footer">
+        <div class="user-profile">
+            <div class="user-avatar">
+                {{ user.avatar }}
+            </div>
+            <div class="user-info">
+                <div class="user-name">{{ user.name }}</div>
+                <div class="user-role">{{ user.role }}</div>
+            </div>
+        </div>
+    </div>
+</aside>

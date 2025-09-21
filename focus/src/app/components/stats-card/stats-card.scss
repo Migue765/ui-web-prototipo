@@ -25,15 +25,15 @@
         padding: var(--spacing-xl);
     }
 
-    // Type variants with solid backgrounds
+    // Type variants with gradient backgrounds
     &--completed {
-        background: var(--accent-orange);
+        background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
         color: var(--white);
         border: none;
 
         .stats-title,
         .stats-subtitle {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .stats-value {
@@ -42,13 +42,13 @@
     }
 
     &--time {
-        background: #4A90E2;
+        background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
         color: var(--white);
         border: none;
 
         .stats-title,
         .stats-subtitle {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .stats-value {
@@ -57,13 +57,13 @@
     }
 
     &--tasks {
-        background: #7ED321;
+        background: linear-gradient(135deg, #7ED321 0%, #5CB85C 100%);
         color: var(--white);
         border: none;
 
         .stats-title,
         .stats-subtitle {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .stats-value {
@@ -85,6 +85,7 @@
 .stats-header {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Distribuir espacio entre texto e icono */
     gap: var(--spacing-md);
 }
 

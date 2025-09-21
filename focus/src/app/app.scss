@@ -22,13 +22,18 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xl);
-    max-width: 800px;
+    max-width: 900px;
+    /* Más ancho para acomodar la card del timer */
     margin: 0 auto;
 }
 
 .page-header {
     text-align: center;
     padding: var(--spacing-lg) 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .heading-2 {
         margin-bottom: var(--spacing-xs);
@@ -177,8 +182,12 @@
     display: flex;
     justify-content: center;
     gap: var(--spacing-lg);
-    padding: var(--spacing-lg) 0;
+    padding: 0;
+    /* Sin padding del contenedor */
     margin-top: var(--spacing-lg);
+    min-width: 700px;
+    /* Mismo ancho que la card del timer */
+    width: 100%;
 }
 
 .quick-action-btn {
@@ -186,18 +195,28 @@
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-xs);
-    padding: var(--spacing-md);
-    background: transparent;
+    padding: var(--spacing-lg);
+    /* Más padding para cada card individual */
+    background: var(--bg-primary);
+    /* Fondo blanco para cada card */
     border: 1px solid var(--border-light);
-    border-radius: var(--radius-medium);
+    border-radius: var(--radius-large);
+    /* Bordes más redondeados */
+    box-shadow: var(--shadow-medium);
+    /* Sombra para cada card */
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    min-width: 80px;
+    flex: 1;
+    /* Distribuir equitativamente el espacio */
+    min-height: 100px;
+    /* Altura mínima para consistencia */
 
     &:hover {
         background: var(--bg-secondary);
         border-color: var(--border-medium);
         transform: translateY(-2px);
+        box-shadow: var(--shadow-heavy);
+        /* Sombra más pronunciada en hover */
     }
 
     &:active {

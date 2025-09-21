@@ -1,13 +1,13 @@
 <div [class]="cardClasses">
     <div class="stats-content">
         <div class="stats-header">
-            <div [class]="iconClasses">
-                {{ stat.icon }}
-            </div>
             <div class="stats-info">
                 <div class="stats-title">{{ stat.title }}</div>
                 <div class="stats-value">{{ stat.value }}</div>
                 <div *ngIf="stat.subtitle" class="stats-subtitle">{{ stat.subtitle }}</div>
+            </div>
+            <div [class]="iconClasses">
+                {{ stat.icon }}
             </div>
         </div>
     </div>

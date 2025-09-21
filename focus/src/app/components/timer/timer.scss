@@ -8,7 +8,8 @@
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-medium);
     border: 1px solid var(--border-light);
-    max-width: 400px;
+    min-width: 900px;
+    /* Más ancho como en la imagen */
     width: 100%;
 }
 
@@ -144,48 +145,4 @@
     font-size: 16px;
 }
 
-// Responsive Design
-@media (max-width: 768px) {
-    .timer-container {
-        padding: var(--spacing-lg);
-        max-width: 350px;
-    }
-
-    .timer-circle {
-        width: 200px;
-        height: 200px;
-    }
-
-    .time-text {
-        font-size: 36px;
-    }
-
-    .timer-controls {
-        flex-direction: column;
-        width: 100%;
-
-        .control-btn {
-            width: 100%;
-            max-width: 200px;
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .timer-container {
-        padding: var(--spacing-md);
-    }
-
-    .timer-circle {
-        width: 180px;
-        height: 180px;
-    }
-
-    .time-text {
-        font-size: 32px;
-    }
-
-    .task-title {
-        font-size: var(--font-size-small);
-    }
-}
+/* Desktop-only application - no responsive styles needed */

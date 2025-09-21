@@ -1,0 +1,168 @@
+<div class="statistics-page">
+    <!-- Header fijo con título -->
+    <div class="page-header-fixed">
+        <div class="page-header-content">
+            <h1 class="page-title">📊 Estadísticas</h1>
+        </div>
+    </div>
+
+    <!-- Header con métricas principales -->
+    <div class="stats-header">
+        <div class="header-metrics">
+            <div *ngFor="let metric of headerMetrics" class="metric-card">
+                <div class="metric-icon" [style.color]="metric.color">
+                    {{ metric.icon }}
+                </div>
+                <div class="metric-info">
+                    <div class="metric-title">{{ metric.title }}</div>
+                    <div class="metric-value">{{ metric.value }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal con gráficos -->
+    <div class="stats-content">
+        <!-- Primera fila: Gráfico de barras y circular -->
+        <div class="charts-row">
+            <!-- Gráfico de barras - Tiempo por Día -->
+            <div class="chart-card chart-card--large">
+                <div class="chart-header">
+                    <h3 class="chart-title">Tiempo por Día</h3>
+                    <span class="chart-period">Últimos 7 días</span>
+                </div>
+                <div class="bar-chart">
+                    <div class="chart-container">
+                        <div class="y-axis">
+                            <span>8h</span>
+                            <span>6h</span>
+                            <span>4h</span>
+                            <span>2h</span>
+                            <span>0</span>
+                        </div>
+                        <div class="bars-container">
+                            <div *ngFor="let data of dailyTimeData" class="bar-group">
+                                <div class="bar-wrapper">
+                                    <div class="bar" [style.height.%]="getBarHeight(data.value)"
+                                        [title]="data.value + 'h'">
+                                    </div>
+                                </div>
+                                <span class="bar-label">{{ data.label }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráfico circular - Ratio Enfoque/Descanso -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">Ratio Enfoque/Descanso</h3>
+                </div>
+                <div class="pie-chart">
+                    <div class="pie-container">
+                        <svg class="pie-svg" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#E5E5E5" stroke-width="8">
+                            </circle>
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#4A90E2" stroke-width="8"
+                                [attr.stroke-dasharray]="getCircleStrokeDasharray()" stroke-dashoffset="0"
+                                transform="rotate(-90 50 50)">
+                            </circle>
+                        </svg>
+                        <div class="pie-center">
+                            <div class="pie-percentage">{{ focusBreakRatio.focus }}%</div>
+                            <div class="pie-label">Enfoque</div>
+                        </div>
+                    </div>
+                    <div class="pie-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #4A90E2;"></span>
+                            <span>Enfoque {{ focusBreakRatio.focus }}%</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #E5E5E5;"></span>
+                            <span>Descanso {{ focusBreakRatio.break }}%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda fila: Gráfico de líneas -->
+        <div class="charts-row">
+            <div class="chart-card chart-card--full">
+                <div class="chart-header">
+                    <h3 class="chart-title">Tendencias Semanales</h3>
+                    <div class="chart-legend">
+                        <span class="legend-item">
+                            <span class="legend-color" style="background: #FF6B35;"></span>
+                            Enfoque
+                        </span>
+                        <span class="legend-item">
+                            <span class="legend-color" style="background: #E5E5E5;"></span>
+                            Descanso
+                        </span>
+                    </div>
+                </div>
+                <div class="line-chart">
+                    <div class="chart-container">
+                        <svg class="line-svg" viewBox="0 0 400 200">
+                            <!-- Grid lines -->
+                            <defs>
+                                <pattern id="grid" width="100" height="40" patternUnits="userSpaceOnUse">
+                                    <path d="M 100 0 L 0 0 0 40" fill="none" stroke="#f0f0f0" stroke-width="1" />
+                                </pattern>
+                            </defs>
+                            <rect width="400" height="200" fill="url(#grid)" />
+
+                            <!-- Line path -->
+                            <polyline fill="none" stroke="#4A90E2" stroke-width="3"
+                                points="50,150 150,120 250,100 350,80" />
+
+                            <!-- Data points -->
+                            <circle cx="50" cy="150" r="4" fill="#4A90E2" />
+                            <circle cx="150" cy="120" r="4" fill="#4A90E2" />
+                            <circle cx="250" cy="100" r="4" fill="#4A90E2" />
+                            <circle cx="350" cy="80" r="4" fill="#4A90E2" />
+                        </svg>
+                        <div class="x-axis">
+                            <span *ngFor="let data of weeklyTrendsData">{{ data.label }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tercera fila: Cards de productividad -->
+        <div class="charts-row">
+            <div *ngFor="let card of productivityCards" class="productivity-card">
+                <div class="card-header">
+                    <div class="card-icon" [style.color]="card.color">{{ card.icon }}</div>
+                    <div class="card-info">
+                        <div class="card-title">{{ card.title }}</div>
+                        <div class="card-subtitle">{{ card.subtitle }}</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-value">{{ card.value }}</div>
+                    <div class="card-detail">{{ card.detail }}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" [style.width.%]="card.progress" [style.background]="card.color">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Análisis de tendencias -->
+        <div class="analysis-section">
+            <h3 class="analysis-title">Análisis de tendencias</h3>
+            <div class="analysis-points">
+                <div *ngFor="let point of analysisPoints" class="analysis-point">
+                    <span class="point-bullet">●</span>
+                    <span class="point-text">{{ point }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

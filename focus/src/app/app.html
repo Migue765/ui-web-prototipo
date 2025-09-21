@@ -1,9 +1,11 @@
 <div class="app-layout">
     <!-- Sidebar -->
-    <app-sidebar></app-sidebar>
+    <app-sidebar (navigationChange)="onNavigationChange($event)"></app-sidebar>
 
     <!-- Main Content -->
     <main class="main-content">
+        <!-- Página de Enfoque -->
+        @if (currentPage() === 'focus') {
         <!-- Content Area with 2 columns -->
         <div class="content-area">
             <!-- Central Column - Main Content -->
@@ -71,6 +73,17 @@
                 </div>
             </aside>
         </div>
+        }
+
+        <!-- Página de Estadísticas -->
+        @if (currentPage() === 'statistics') {
+        <app-statistics></app-statistics>
+        }
+
+        <!-- Página de Tareas -->
+        @if (currentPage() === 'tasks') {
+        <app-tasks></app-tasks>
+        }
     </main>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export interface MenuItem {
@@ -16,27 +16,29 @@ export interface MenuItem {
   styleUrl: './sidebar.scss'
 })
 export class SidebarComponent {
+  @Output() navigationChange = new EventEmitter<string>();
+
   menuItems: MenuItem[] = [
     {
       icon: '🏠',
       label: 'Inicio',
-      route: '/inicio',
+      route: 'focus',
       active: true
     },
     {
       icon: '📊',
       label: 'Estadísticas',
-      route: '/estadisticas'
+      route: 'statistics'
     },
     {
       icon: '📋',
       label: 'Tareas',
-      route: '/tareas'
+      route: 'tasks'
     },
     {
       icon: '⚙️',
       label: 'Configuración',
-      route: '/configuracion'
+      route: 'settings'
     }
   ];
 
@@ -51,6 +53,15 @@ export class SidebarComponent {
     this.menuItems.forEach(menuItem => menuItem.active = false);
     // Set clicked item as active
     item.active = true;
-    console.log('Navigate to:', item.route);
+
+    // Emit navigation event
+    this.navigationChange.emit(item.route);
+  }
+
+  // Método público para actualizar el estado activo desde el componente padre
+  setActiveRoute(route: string): void {
+    this.menuItems.forEach(item => {
+      item.active = item.route === route;
+    });
   }
 }

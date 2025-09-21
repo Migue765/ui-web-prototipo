@@ -1,0 +1,480 @@
+.statistics-page {
+    background: var(--bg-secondary);
+    min-height: 100vh;
+    padding-top: 80px;
+    /* Espacio para el header fijo */
+    margin-left: 240px;
+    /* Margen izquierdo igual al sidebar */
+    /* Sin margen derecho para usar todo el ancho disponible */
+}
+
+// Header fijo en la parte superior
+.page-header-fixed {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    /* Después del sidebar */
+    right: 0;
+    /* Usar todo el ancho disponible */
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-light);
+    z-index: 100;
+    box-shadow: var(--shadow-light);
+}
+
+.page-header-content {
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    /* Restaurar padding lateral */
+}
+
+.page-title {
+    font-size: 30px;
+    /* Tamaño específico de 30px */
+    font-weight: 700;
+    /* Roboto Bold */
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #112B3C;
+    /* Color específico */
+    margin: 0;
+    text-align: left;
+}
+
+// Header de la página (métricas)
+.stats-header {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    /* Restaurar padding lateral */
+}
+
+// Métricas del header
+.header-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Forzar 4 columnas para una sola fila */
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.metric-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--spacing-md);
+    /* Reducir padding para que quepan mejor en una fila */
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    /* Reducir gap interno */
+    transition: all 0.2s ease-in-out;
+    min-width: 0;
+    /* Permitir que las cards se reduzcan si es necesario */
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+.metric-icon {
+    font-size: 28px;
+    /* Reducir ligeramente el tamaño del icono */
+    width: 50px;
+    /* Reducir ancho */
+    height: 50px;
+    /* Reducir altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-medium);
+    flex-shrink: 0;
+    /* Evitar que el icono se reduzca */
+}
+
+.metric-info {
+    flex: 1;
+}
+
+.metric-title {
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.metric-value {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+}
+
+// Contenido principal
+.stats-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+    /* Restaurar padding lateral */
+    width: 100%;
+}
+
+.charts-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+
+    &:nth-child(2) {
+        grid-template-columns: 1fr; // Gráfico de líneas ocupa toda la fila
+    }
+
+    &:nth-child(3) {
+        grid-template-columns: 1fr 1fr; // Cards de productividad
+    }
+}
+
+// Cards de gráficos
+.chart-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-light);
+
+    &--large {
+        // Estilos específicos para gráficos grandes
+    }
+
+    &--full {
+        // Estilos para gráficos que ocupan toda la fila
+    }
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.chart-title {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.chart-period {
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+}
+
+.chart-legend {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+// Gráfico de barras
+.bar-chart {
+    height: 350px;
+    /* Aumentar altura */
+}
+
+.chart-container {
+    display: flex;
+    height: 100%;
+    align-items: end;
+}
+
+.y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    /* Aumentar altura */
+    margin-right: var(--spacing-md);
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+}
+
+.bars-container {
+    display: flex;
+    align-items: end;
+    gap: var(--spacing-md);
+    height: 300px;
+    /* Aumentar altura */
+    flex: 1;
+}
+
+.bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+}
+
+.bar-wrapper {
+    height: 300px;
+    /* Aumentar altura */
+    /* Altura fija del contenedor */
+    width: 100%;
+    max-width: 50px;
+    /* Hacer las barras un poco más anchas */
+    display: flex;
+    align-items: flex-end;
+    /* Alinear las barras en la parte inferior */
+}
+
+.bar {
+    width: 100%;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    border-radius: var(--radius-small) var(--radius-small) 0 0;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    min-height: 10px;
+    /* Altura mínima para barras muy pequeñas */
+
+    &:hover {
+        opacity: 0.8;
+        transform: scaleY(1.05);
+    }
+}
+
+.bar-label {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+}
+
+// Gráfico circular
+.pie-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.pie-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-svg {
+    width: 240px;
+    /* Hacer el gráfico circular más grande */
+    height: 240px;
+}
+
+.pie-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    /* Evitar interferencias con el SVG */
+}
+
+.pie-percentage {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+}
+
+.pie-label {
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+}
+
+.pie-legend {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+// Gráfico de líneas
+.line-chart {
+    height: 300px;
+    /* Aumentar altura del gráfico de líneas */
+}
+
+.line-svg {
+    width: 100%;
+    height: 250px;
+    /* Aumentar altura del SVG */
+}
+
+.x-axis {
+    display: flex;
+    justify-content: space-around;
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+}
+
+// Cards de productividad
+.productivity-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-light);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-icon {
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-medium);
+}
+
+.card-info {
+    flex: 1;
+}
+
+.card-title {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-subtitle {
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.card-value {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+}
+
+.card-detail {
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-small);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: var(--radius-small);
+    transition: width 0.3s ease-in-out;
+}
+
+// Análisis de tendencias
+.analysis-section {
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-light);
+}
+
+.analysis-title {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.analysis-points {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.analysis-point {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.point-bullet {
+    color: var(--primary-medium);
+    font-weight: var(--font-weight-bold);
+    margin-top: 2px;
+}
+
+.point-text {
+    font-size: var(--font-size-body);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+// Responsive design
+@media (max-width: 1024px) {
+    .charts-row {
+        grid-template-columns: 1fr;
+    }
+
+    .header-metrics {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .statistics-page {
+        padding: var(--spacing-lg);
+    }
+
+    .header-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        padding: var(--spacing-md);
+    }
+
+    .chart-card {
+        padding: var(--spacing-md);
+    }
+}

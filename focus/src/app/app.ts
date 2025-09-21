@@ -1,9 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar';
 import { TimerComponent } from './components/timer/timer';
 import { StatsCardComponent, StatData } from './components/stats-card/stats-card';
+import { StatisticsComponent } from './components/statistics/statistics';
+import { TasksComponent } from './components/tasks/tasks';
 
 @Component({
   selector: 'app-root',
@@ -13,13 +15,20 @@ import { StatsCardComponent, StatData } from './components/stats-card/stats-card
     RouterOutlet,
     SidebarComponent,
     TimerComponent,
-    StatsCardComponent
+    StatsCardComponent,
+    StatisticsComponent,
+    TasksComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class AppComponent {
+  @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
+
   title = signal('Focus');
+
+  // Control de navegación
+  currentPage = signal<'focus' | 'statistics' | 'tasks'>('focus');
 
   // Quick stats data
   quickStats: StatData[] = [
@@ -113,8 +122,51 @@ export class AppComponent {
         // Lógica para ruido blanco
         break;
       case 'statistics':
-        // Lógica para estadísticas
+        this.navigateToStatistics();
         break;
+    }
+  }
+
+  // Métodos de navegación
+  navigateToFocus(): void {
+    this.currentPage.set('focus');
+    if (this.sidebar) {
+      this.sidebar.setActiveRoute('focus');
+    }
+  }
+
+  navigateToStatistics(): void {
+    this.currentPage.set('statistics');
+    if (this.sidebar) {
+      this.sidebar.setActiveRoute('statistics');
+    }
+  }
+
+  navigateToTasks(): void {
+    this.currentPage.set('tasks');
+    if (this.sidebar) {
+      this.sidebar.setActiveRoute('tasks');
+    }
+  }
+
+  onNavigationChange(route: string): void {
+    console.log('Navigation to:', route);
+    switch (route) {
+      case 'focus':
+        this.navigateToFocus();
+        break;
+      case 'statistics':
+        this.navigateToStatistics();
+        break;
+      case 'tasks':
+        this.navigateToTasks();
+        break;
+      case 'settings':
+        // Placeholder para página de configuración
+        console.log('Página de configuración no implementada aún');
+        break;
+      default:
+        this.navigateToFocus();
     }
   }
 }

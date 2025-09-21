@@ -27,14 +27,14 @@ export class AppComponent {
       type: 'completed',
       title: 'Ciclos Completados',
       value: '8',
-      icon: '✅',
+      icon: '🔄',
       color: 'var(--accent-orange)'
     },
     {
       type: 'time',
       title: 'Tiempo Enfocado',
       value: '3h 20m',
-      icon: '⏱️',
+      icon: '🕐',
       color: '#4A90E2'
     },
     {

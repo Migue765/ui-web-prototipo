@@ -25,17 +25,50 @@
         padding: var(--spacing-xl);
     }
 
-    // Type variants
+    // Type variants with solid backgrounds
     &--completed {
-        border-left: 4px solid var(--accent-orange);
+        background: var(--accent-orange);
+        color: var(--white);
+        border: none;
+
+        .stats-title,
+        .stats-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .stats-value {
+            color: var(--white);
+        }
     }
 
     &--time {
-        border-left: 4px solid #4A90E2;
+        background: #4A90E2;
+        color: var(--white);
+        border: none;
+
+        .stats-title,
+        .stats-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .stats-value {
+            color: var(--white);
+        }
     }
 
     &--tasks {
-        border-left: 4px solid #7ED321;
+        background: #7ED321;
+        color: var(--white);
+        border: none;
+
+        .stats-title,
+        .stats-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .stats-value {
+            color: var(--white);
+        }
     }
 
     &--progress {
@@ -66,18 +99,18 @@
     flex-shrink: 0;
 
     &--completed {
-        background: rgba(246, 107, 14, 0.1);
-        color: var(--accent-orange);
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--white);
     }
 
     &--time {
-        background: rgba(74, 144, 226, 0.1);
-        color: #4A90E2;
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--white);
     }
 
     &--tasks {
-        background: rgba(126, 211, 33, 0.1);
-        color: #7ED321;
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--white);
     }
 
     &--progress {

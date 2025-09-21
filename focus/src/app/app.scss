@@ -7,18 +7,21 @@
 .main-content {
     flex: 1;
     margin-left: 240px; // Sidebar width
+    margin-right: 320px; // Right panel width - igual que el sidebar
     min-height: 100vh;
     background: var(--bg-secondary);
 }
 
 .content-area {
     display: flex;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-xl) var(--spacing-lg);
-    max-width: 1400px;
-    margin: 0 auto;
+    gap: 0;
+    padding: 0;
+    max-width: none;
+    margin: 0;
     width: 100%;
     min-height: 100vh;
+    height: 100vh;
+    /* Altura fija para asegurar que ocupe toda la pantalla */
 }
 
 .central-column {
@@ -27,6 +30,8 @@
     flex-direction: column;
     gap: var(--spacing-xl);
     max-width: 800px;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    /* Padding interno para la columna central */
 }
 
 .page-header {
@@ -51,18 +56,29 @@
 
 .right-column {
     width: 320px;
+    flex-shrink: 0;
+    min-height: 100vh;
+    /* Altura completa */
+}
+
+.stats-panel {
+    background: var(--bg-primary);
+    border-radius: 0;
+    padding: var(--spacing-lg);
+    box-shadow: none;
+    border: none;
+    border-left: 1px solid var(--border-light);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-    flex-shrink: 0;
+    height: 100vh;
+    /* Altura exacta de la pantalla */
+    overflow-y: auto;
+    /* Scroll si el contenido es muy largo */
 }
 
 .quick-stats-section {
-    background: var(--bg-primary);
-    border-radius: var(--radius-large);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-light);
-    border: 1px solid var(--border-light);
+    /* No background or border - part of the unified panel */
 }
 
 .stats-title {
@@ -78,16 +94,12 @@
     gap: var(--spacing-md);
 }
 
-.progress-card,
-.tasks-card {
-    background: var(--bg-primary);
-    border-radius: var(--radius-large);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-light);
-    border: 1px solid var(--border-light);
+.progress-section,
+.tasks-section {
+    /* These are now part of the unified stats-panel */
 }
 
-.card-title {
+.section-title {
     font-size: var(--font-size-body);
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
@@ -214,78 +226,4 @@
     font-weight: var(--font-weight-regular);
 }
 
-// Responsive Design
-@media (max-width: 1024px) {
-    .main-content {
-        margin-left: 200px;
-    }
-
-    .content-area {
-        flex-direction: column;
-        gap: var(--spacing-lg);
-    }
-
-    .central-column {
-        max-width: 100%;
-    }
-
-    .right-column {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .stats-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-md);
-    }
-}
-
-@media (max-width: 768px) {
-    .main-content {
-        margin-left: 0;
-    }
-
-    .content-area {
-        padding: var(--spacing-lg);
-    }
-
-    .page-header {
-        padding: var(--spacing-md) 0;
-    }
-
-    .stats-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .quick-actions {
-        flex-wrap: wrap;
-        gap: var(--spacing-md);
-    }
-
-    .quick-action-btn {
-        flex: 1;
-        min-width: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .content-area {
-        padding: var(--spacing-md);
-    }
-
-    .page-header {
-        padding: var(--spacing-sm) 0;
-    }
-
-    .progress-card,
-    .tasks-card,
-    .quick-stats-section {
-        padding: var(--spacing-md);
-    }
-
-    .quick-actions {
-        padding: var(--spacing-md) 0;
-    }
-}
+/* Desktop-only application - no responsive styles needed */

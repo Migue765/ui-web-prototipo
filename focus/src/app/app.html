@@ -31,39 +31,41 @@
                 </div>
             </section>
 
-            <!-- Right Column - Stats -->
+            <!-- Right Column - Unified Stats Panel -->
             <aside class="right-column">
-                <!-- Quick Stats -->
-                <div class="quick-stats-section">
-                    <h3 class="stats-title">Estadísticas Rápidas</h3>
-                    <div class="stats-cards">
-                        <app-stats-card *ngFor="let stat of quickStats" [stat]="stat" size="small">
-                        </app-stats-card>
-                    </div>
-                </div>
-
-                <!-- Today's Progress -->
-                <div class="progress-card">
-                    <h3 class="card-title">Progreso de Hoy</h3>
-                    <div class="progress-content">
-                        <div class="progress-item">
-                            <span class="progress-label">Meta diaria</span>
-                            <span class="progress-value">{{ todayProgress.completed }} / {{ todayProgress.dailyGoal
-                                }}</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" [style.width.%]="todayProgress.percentage"></div>
+                <div class="stats-panel">
+                    <!-- Quick Stats -->
+                    <div class="quick-stats-section">
+                        <h3 class="stats-title">Estadísticas Rápidas</h3>
+                        <div class="stats-cards">
+                            <app-stats-card *ngFor="let stat of quickStats" [stat]="stat" size="small">
+                            </app-stats-card>
                         </div>
                     </div>
-                </div>
 
-                <!-- Recent Tasks -->
-                <div class="tasks-card">
-                    <h3 class="card-title">Tareas Recientes</h3>
-                    <div class="tasks-list">
-                        <div *ngFor="let task of recentTasks" class="task-item" [class.completed]="task.completed">
-                            <span class="task-icon">{{ task.icon }}</span>
-                            <span class="task-title">{{ task.title }}</span>
+                    <!-- Today's Progress -->
+                    <div class="progress-section">
+                        <h3 class="section-title">Progreso de Hoy</h3>
+                        <div class="progress-content">
+                            <div class="progress-item">
+                                <span class="progress-label">Meta diaria</span>
+                                <span class="progress-value">{{ todayProgress.completed }} / {{ todayProgress.dailyGoal
+                                    }}</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" [style.width.%]="todayProgress.percentage"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Tasks -->
+                    <div class="tasks-section">
+                        <h3 class="section-title">Tareas Recientes</h3>
+                        <div class="tasks-list">
+                            <div *ngFor="let task of recentTasks" class="task-item" [class.completed]="task.completed">
+                                <span class="task-icon">{{ task.icon }}</span>
+                                <span class="task-title">{{ task.title }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

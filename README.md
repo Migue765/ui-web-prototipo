@@ -130,4 +130,4 @@ Este proyecto fue desarrollado como parte del programa de Maestría en UI Design
 
 **Proyecto Final - UI Design**  
 **Universidad de los Andes**  
-**2024**
+**2025**

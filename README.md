@@ -1,133 +1,60 @@
-# Focus - Aplicación Pomodoro
+# Focus
 
-Una aplicación web moderna para aplicar la **Técnica Pomodoro** y mejorar la productividad personal. Desarrollada como proyecto final para la Maestría en UI Design de la Universidad de los Andes.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
 
-## 🍅 ¿Qué es la Técnica Pomodoro?
+## Development server
 
-La Técnica Pomodoro es un método de gestión del tiempo que utiliza intervalos de trabajo de 25 minutos, separados por descansos cortos. Esta aplicación te ayuda a:
+To start a local development server, run:
 
-- **Mantener el enfoque** durante sesiones de trabajo concentrado
-- **Gestionar tareas** de manera eficiente
-- **Visualizar estadísticas** de productividad
-- **Aplicar descansos regulares** para mantener la energía
+```bash
+ng serve
+```
 
-## ✨ Características Principales
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-### 🏠 Sesión de Enfoque
-- Timer Pomodoro de 25 minutos con controles de play/pausa
-- Visualización de la tarea actual en progreso
-- Acciones rápidas: Nueva sesión, Ruido blanco, Estadísticas
-- Panel lateral con estadísticas rápidas y progreso diario
+## Code scaffolding
 
-### 📊 Estadísticas
-- Métricas principales: Sesiones completadas, Tiempo total, Tareas finalizadas
-- Gráfico de barras: Tiempo por día (últimos 7 días)
-- Gráfico circular: Ratio Enfoque/Descanso
-- Gráfico de líneas: Tendencias semanales
-- Análisis de productividad por día y hora
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-### 📋 Gestión de Tareas
-- Creación y organización de tareas
-- Estados: Pendientes, En curso, Completadas
-- Sistema de filtros y búsqueda
-- Seguimiento de pomodoros por tarea
-- Categorización por tipo (Trabajo, Personal, Estudio)
+```bash
+ng generate component component-name
+```
 
-## 🎨 Diseño
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-El diseño de la aplicación está basado en el prototipo de Figma:
-**[Ver Diseño en Figma](https://www.figma.com/design/Z57gppZ5RljnOYWMPCPwC7/Web-UX?node-id=81-1742&p=f&t=t1ZXVTShjgyg8jn8-0)**
+```bash
+ng generate --help
+```
 
-### Características del Diseño:
-- **Interfaz moderna** con componentes Material Design
-- **Paleta de colores** profesional (azul, naranja, verde)
-- **Tipografía Roboto** para excelente legibilidad
-- **Layout responsivo** optimizado para desktop
-- **Navegación intuitiva** con sidebar fijo
+## Building
 
-## 🚀 Instrucciones para Ejecutar Localmente
+To build the project run:
 
-### Prerrequisitos
-- **Node.js** (versión 18 o superior)
-- **npm** (incluido con Node.js)
-- **Angular CLI** (se instalará automáticamente)
+```bash
+ng build
+```
 
-### Pasos de Instalación
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone <url-del-repositorio>
-   cd ui-web-prototipo
-   ```
+## Running unit tests
 
-2. **Navegar al directorio del proyecto**
-   ```bash
-   cd focus
-   ```
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-3. **Instalar dependencias**
-   ```bash
-   npm install
-   ```
+```bash
+ng test
+```
 
-4. **Ejecutar la aplicación en modo desarrollo**
-   ```bash
-   npm start
-   ```
-   
-   O alternativamente:
-   ```bash
-   ng serve
-   ```
+## Running end-to-end tests
 
-5. **Abrir en el navegador**
-   - La aplicación estará disponible en: `http://localhost:4200`
-   - Si el puerto 4200 está ocupado, Angular sugerirá automáticamente un puerto alternativo
+For end-to-end (e2e) testing, run:
 
-### Comandos Adicionales
+```bash
+ng e2e
+```
 
-- **Compilar para producción**
-  ```bash
-  npm run build
-  ```
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-- **Ejecutar tests**
-  ```bash
-  npm test
-  ```
 
-- **Ejecutar en puerto específico**
-  ```bash
-  ng serve --port 4201
-  ```
+## Additional Resources
 
-## 🛠️ Tecnologías Utilizadas
-
-- **Angular 17** - Framework principal
-- **TypeScript** - Lenguaje de programación
-- **SCSS** - Preprocesador CSS
-- **Angular Standalone Components** - Arquitectura moderna
-- **CSS Grid & Flexbox** - Layout responsivo
-- **SVG** - Gráficos y visualizaciones
-
-## 📱 Navegación de la Aplicación
-
-- **🏠 Inicio**: Sesión de enfoque con timer Pomodoro
-- **📊 Estadísticas**: Visualización de métricas y tendencias
-- **📋 Tareas**: Gestión completa de tareas y proyectos
-- **⚙️ Configuración**: Personalización de la aplicación (próximamente)
-
-## 👨‍💻 Desarrollo
-
-Este proyecto fue desarrollado como parte del programa de Maestría en UI Design de la Universidad de los Andes, enfocándose en:
-
-- **Experiencia de Usuario (UX)** optimizada para productividad
-- **Interfaz de Usuario (UI)** moderna y accesible
-- **Arquitectura de componentes** escalable y mantenible
-- **Responsive Design** para diferentes dispositivos
-
----
-
-**Proyecto Final - UI Design**  
-**Universidad de los Andes**  
-**2025**
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

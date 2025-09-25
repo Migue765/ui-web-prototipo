@@ -1,0 +1,187 @@
+<!-- Landing Page Web -->
+<div class="landing-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <span class="logo-letter">F</span>
+                    </div>
+                    <span class="logo-text">F.O.C.U.S.</span>
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="nav-buttons">
+                    <button class="btn-login" (click)="onLoginClick()">Iniciar sesión</button>
+                    <button class="btn-signup" (click)="onSignupClick()">Crear cuenta</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">F.O.C.U.S.</h1>
+                <p class="hero-description">
+                    Maximiza tu productividad con la aplicación de gestión del tiempo más
+                    inteligente. Combina la técnica Pomodoro con análisis avanzados para
+                    alcanzar tus objetivos.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" (click)="onLoginClick()">Iniciar sesión</button>
+                    <button class="btn-secondary" (click)="onSignupClick()">Crear cuenta</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="features-container">
+                <div class="features-header">
+                    <h2 class="features-title">¿Por qué elegir F.O.C.U.S.?</h2>
+                    <p class="features-description">
+                        Descubre las características que hacen de F.O.C.U.S. la herramienta
+                        perfecta para tu productividad
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Feature 1: Pomodoro Inteligente -->
+                    <div class="feature-card">
+                        <div class="feature-icon orange">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Pomodoro Inteligente</h3>
+                        <p class="feature-description">
+                            Sistema adaptativo que aprende de tus patrones de trabajo para
+                            optimizar tus sesiones de enfoque.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2: Gestión de Tareas -->
+                    <div class="feature-card">
+                        <div class="feature-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Gestión de Tareas</h3>
+                        <p class="feature-description">
+                            Organiza y prioriza tus actividades con un sistema intuitivo de
+                            gestión de proyectos integrado.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3: Análisis Detallado -->
+                    <div class="feature-card">
+                        <div class="feature-icon orange">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 2.25l1.5-1.5-1.5-1.5-1.5 1.5 1.5 1.5zm-13-13L5 4.75 3.5 6.25 5 7.75 6.5 6.25zM12 1l1.5 1.5L12 4 10.5 2.5 12 1zm6.5 9.5L20 12l-1.5 1.5L17 12l1.5-1.5zM6.5 14.5L5 16l-1.5-1.5L5 13l1.5 1.5zM12 23l-1.5-1.5L12 20l1.5 1.5L12 23z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Análisis Detallado</h3>
+                        <p class="feature-description">
+                            Obtén insights profundos sobre tu productividad con reportes
+                            visuales y métricas personalizadas.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4: Flexibilidad Total -->
+                    <div class="feature-card">
+                        <div class="feature-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Flexibilidad Total</h3>
+                        <p class="feature-description">
+                            Personaliza completamente tu experiencia con configuraciones
+                            adaptables a tu estilo de trabajo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Comienza a maximizar tu productividad hoy</h2>
+                <p class="cta-description">
+                    Únete a miles de usuarios que ya han transformado su forma de trabajar con F.O.C.U.S.
+                </p>
+                <button class="btn-cta" (click)="onGetStartedClick()">Empezar ahora gratis</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <span class="footer-logo-letter">F</span>
+                        </div>
+                        <span class="footer-logo-text">F.O.C.U.S.</span>
+                    </div>
+                    <p class="footer-description">
+                        La aplicación de productividad que transforma tu forma de trabajar.
+                    </p>
+                </div>
+
+                <!-- Product Links -->
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Producto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Características</a></li>
+                        <li><a href="#">Precios</a></li>
+                        <li><a href="#">Descargas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Links -->
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Guías</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 F.O.C.U.S. Todos los derechos reservados :v</p>
+            </div>
+        </div>
+    </footer>
+</div>

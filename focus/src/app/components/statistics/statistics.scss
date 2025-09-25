@@ -49,6 +49,15 @@
     /* Color específico */
     margin: 0;
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .title-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
 }
 
 // Header de la página (métricas)

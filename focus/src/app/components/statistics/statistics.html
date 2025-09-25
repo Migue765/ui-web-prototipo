@@ -15,8 +15,14 @@
         <div class="stats-header">
             <div class="header-metrics">
                 <div *ngFor="let metric of headerMetrics" class="metric-card">
-                    <div class="metric-icon" [style.color]="metric.color">
-                        {{ metric.icon }}
+                    <div class="metric-header">
+                        <div class="metric-icon" [ngClass]="metric.iconClass">
+                            <img [src]="metric.iconImage" [alt]="metric.title" *ngIf="metric.iconImage">
+                            <span *ngIf="metric.icon && !metric.iconImage">{{ metric.icon }}</span>
+                        </div>
+                        <div class="metric-change" [ngClass]="metric.changeClass">
+                            {{ metric.change }}
+                        </div>
                     </div>
                     <div class="metric-info">
                         <div class="metric-title">{{ metric.title }}</div>

@@ -4,9 +4,13 @@ import { Router } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar';
 
 interface StatMetric {
-    icon: string;
+    icon?: string;
+    iconImage?: string;
+    iconClass: string;
     title: string;
     value: string;
+    change: string;
+    changeClass: string;
     subtitle?: string;
     color: string;
 }
@@ -29,28 +33,40 @@ export class StatisticsComponent {
     // Métricas principales del header
     headerMetrics: StatMetric[] = [
         {
-            icon: '⏱️',
+            iconImage: 'assets/images/statistics/clock.png',
+            iconClass: 'time-icon',
             title: 'Total Tiempo Enfocado',
             value: '45h 32m',
-            color: '#FF6B35'
+            change: '+12%',
+            changeClass: 'positive',
+            color: '#F66B0E'
         },
         {
-            icon: '🔄',
+            iconImage: 'assets/images/statistics/reload.png',
+            iconClass: 'cycles-icon',
             title: 'Ciclos Completados',
             value: '127',
-            color: '#4A90E2'
+            change: '+8%',
+            changeClass: 'positive',
+            color: '#205375'
         },
         {
-            icon: '📊',
+            iconImage: 'assets/images/statistics/grafica.png',
+            iconClass: 'average-icon',
             title: 'Promedio Diario',
             value: '6h 29m',
-            color: '#7ED321'
+            change: '-3%',
+            changeClass: 'negative',
+            color: '#112B3C'
         },
         {
-            icon: '⚡',
+            iconImage: 'assets/images/statistics/fire.png',
+            iconClass: 'streak-icon',
             title: 'Racha Actual',
             value: '14 días',
-            color: '#F7931E'
+            change: '+1',
+            changeClass: 'positive',
+            color: '#EAB308'
         }
     ];
 

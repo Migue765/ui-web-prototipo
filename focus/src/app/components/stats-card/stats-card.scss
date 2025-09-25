@@ -85,7 +85,8 @@
 .stats-header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribuir espacio entre texto e icono */
+    justify-content: space-between;
+    /* Distribuir espacio entre texto e icono */
     gap: var(--spacing-md);
 }
 

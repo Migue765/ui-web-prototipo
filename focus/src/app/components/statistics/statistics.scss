@@ -1,10 +1,20 @@
+// Statistics layout with sidebar
+.statistics-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
 .statistics-page {
     background: var(--bg-secondary);
     min-height: 100vh;
     padding-top: 80px;
     /* Espacio para el header fijo */
-    margin-left: 240px;
+    margin-left: 272px;
     /* Margen izquierdo igual al sidebar */
+    width: calc(100% - 272px);
     /* Sin margen derecho para usar todo el ancho disponible */
 }
 
@@ -12,7 +22,7 @@
 .page-header-fixed {
     position: fixed;
     top: 0;
-    left: 240px;
+    left: 272px;
     /* Después del sidebar */
     right: 0;
     /* Usar todo el ancho disponible */

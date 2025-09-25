@@ -1,0 +1,345 @@
+// Dashboard Web Styles - Full Width Layout
+.dashboard-layout {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #EFEFEF;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: scroll;
+}
+
+// Main content area (positioned after sidebar)
+.main-content {
+  position: absolute;
+  width: calc(100vw - 288px);
+  height: 100vh;
+  left: 288px;
+  top: 0px;
+}
+
+// Central column with timer
+.central-column {
+  position: absolute;
+  width: calc(100vw - 288px - 320px);
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+}
+
+// Timer content area
+.timer-content-area {
+  position: absolute;
+  width: calc(100% - 160px);
+  max-width: 672px;
+  height: 736px;
+  left: 50%;
+  top: 32px;
+  transform: translateX(-50%);
+}
+
+// Page header
+.page-header {
+  position: absolute;
+  width: 100%;
+  max-width: 672px;
+  height: 68px;
+  left: 0px;
+  top: 0px;
+}
+
+.heading-2 {
+  position: absolute;
+  width: 257px;
+  height: 36px;
+  left: 0px;
+  top: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: #112B3C;
+  margin: 0;
+}
+
+.body-text {
+  position: absolute;
+  width: 351px;
+  height: 24px;
+  left: 0px;
+  top: 44px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4B5563;
+  margin: 0;
+}
+
+// Timer section
+.timer-section {
+  position: absolute;
+  width: 100%;
+  max-width: 672px;
+  height: 500px;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+  background: #FFFFFF;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+// Quick actions
+.quick-actions {
+  position: absolute;
+  width: 100%;
+  max-width: 672px;
+  height: 104px;
+  left: 50%;
+  top: 632px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+}
+
+.quick-action-btn {
+  width: 213.33px;
+  height: 104px;
+  background: #FFFFFF;
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15), 0px 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .action-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #F66B0E;
+  }
+
+  .action-label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #112B3C;
+    text-align: center;
+  }
+}
+
+// Right column - Stats panel
+.right-column {
+  position: absolute;
+  width: 320px;
+  height: 100vh;
+  right: 0px;
+  top: 0px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+}
+
+.stats-panel {
+  padding: 24px;
+  height: 100%;
+  position: relative;
+}
+
+// Quick stats section
+.quick-stats-section {
+  margin-bottom: 32px;
+}
+
+.stats-title {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #112B3C;
+  margin: 0 0 24px 0;
+}
+
+.stats-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+// Progress section
+.progress-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #112B3C;
+  margin: 0 0 16px 0;
+}
+
+.progress-content {
+  width: 100%;
+}
+
+.progress-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4B5563;
+}
+
+.progress-value {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #E5E7EB;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #F66B0E;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+// Tasks section
+.tasks-section {
+  margin-bottom: 32px;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+
+  &.completed {
+    background: #F9FAFB;
+  }
+
+  &:not(.completed) {
+    background: #FFF7ED;
+  }
+}
+
+.task-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #374151;
+  flex: 1;
+}
+
+// Responsive design
+@media (max-width: 1200px) {
+  .main-content {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+  }
+
+  .central-column {
+    width: calc(100% - 300px);
+    padding: 24px 40px;
+  }
+
+  .page-header,
+  .timer-section,
+  .quick-actions {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .quick-action-btn {
+    width: calc(33.333% - 12px);
+    min-width: 180px;
+  }
+
+  .right-column {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+  }
+
+  .central-column {
+    width: 100%;
+    padding: 16px 20px;
+  }
+
+  .right-column {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .quick-actions {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .quick-action-btn {
+    width: 100%;
+    height: 80px;
+  }
+}

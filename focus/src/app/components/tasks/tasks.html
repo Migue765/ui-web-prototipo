@@ -1,123 +1,129 @@
-<div class="tasks-page" style="background: #EFEFEF; min-height: 100vh; padding-top: 80px; margin-left: 240px;">
-    <!-- Header fijo con título y filtros -->
-    <div class="page-header-fixed"
-        style="position: fixed; top: 0; left: 240px; right: 0; background: #FFFFFF; border-bottom: 1px solid #E0E0E0; z-index: 100; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 16px 32px;">
-        <div class="header-content"
-            style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-            <!-- Título -->
-            <h1 class="page-title"
-                style="font-size: 24px; font-weight: 700; color: #112B3C; margin: 0; display: flex; align-items: center; gap: 8px;">
-                📋 Gestión de Tareas
-            </h1>
+<div class="tasks-layout">
+    <!-- Sidebar -->
+    <app-sidebar (navigationChange)="onNavigationChange($event)"></app-sidebar>
 
-            <!-- Filtros y controles -->
-            <div class="header-controls" style="display: flex; align-items: center; gap: 16px;">
-                <!-- Filtros de tareas -->
-                <div class="filters-container" style="display: flex; gap: 8px;">
-                    <button *ngFor="let filter of filters" class="filter-btn" [class.active]="filter.active"
-                        (click)="onFilterChange(filter.id)"
-                        style="display: flex; align-items: center; gap: 4px; padding: 8px 16px; border: 1px solid #E0E0E0; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.2s ease-in-out;"
-                        [style.background]="filter.active ? '#F66B0E' : '#FFFFFF'"
-                        [style.color]="filter.active ? '#FFFFFF' : '#112B3C'">
-                        <span class="filter-label">{{ filter.label }}</span>
-                        <span class="filter-count"
-                            style="padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600;"
-                            [style.background]="filter.active ? 'rgba(255,255,255,0.2)' : '#EFEFEF'"
-                            [style.color]="filter.active ? '#FFFFFF' : '#666666'">
-                            {{ filter.count }}
-                        </span>
+    <!-- Main Content -->
+    <div class="tasks-page"
+        style="background: #EFEFEF; min-height: 100vh; padding-top: 80px; margin-left: 272px; width: calc(100% - 272px);">
+        <!-- Header fijo con título y filtros -->
+        <div class="page-header-fixed"
+            style="position: fixed; top: 0; left: 272px; right: 0; background: #FFFFFF; border-bottom: 1px solid #E0E0E0; z-index: 100; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 16px 32px;">
+            <div class="header-content"
+                style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <!-- Título -->
+                <h1 class="page-title"
+                    style="font-size: 24px; font-weight: 700; color: #112B3C; margin: 0; display: flex; align-items: center; gap: 8px;">
+                    📋 Gestión de Tareas
+                </h1>
+
+                <!-- Filtros y controles -->
+                <div class="header-controls" style="display: flex; align-items: center; gap: 16px;">
+                    <!-- Filtros de tareas -->
+                    <div class="filters-container" style="display: flex; gap: 8px;">
+                        <button *ngFor="let filter of filters" class="filter-btn" [class.active]="filter.active"
+                            (click)="onFilterChange(filter.id)"
+                            style="display: flex; align-items: center; gap: 4px; padding: 8px 16px; border: 1px solid #E0E0E0; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.2s ease-in-out;"
+                            [style.background]="filter.active ? '#F66B0E' : '#FFFFFF'"
+                            [style.color]="filter.active ? '#FFFFFF' : '#112B3C'">
+                            <span class="filter-label">{{ filter.label }}</span>
+                            <span class="filter-count"
+                                style="padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600;"
+                                [style.background]="filter.active ? 'rgba(255,255,255,0.2)' : '#EFEFEF'"
+                                [style.color]="filter.active ? '#FFFFFF' : '#666666'">
+                                {{ filter.count }}
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Barra de búsqueda -->
+                    <input type="text" class="search-input" placeholder="🔍 Buscar tareas..."
+                        style="padding: 8px 16px; border: 1px solid #E0E0E0; border-radius: 8px; background: #FFFFFF; font-size: 14px; color: #112B3C; min-width: 250px;">
+
+                    <!-- Botón de filtros adicionales -->
+                    <button class="filter-options-btn"
+                        style="padding: 8px; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                        ⚙️
+                    </button>
+
+                    <!-- Botón Nueva Tarea -->
+                    <button class="add-task-btn" (click)="onAddTask()"
+                        style="display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: #F66B0E; color: #FFFFFF; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                        ➕ Nueva Tarea
                     </button>
                 </div>
-
-                <!-- Barra de búsqueda -->
-                <input type="text" class="search-input" placeholder="🔍 Buscar tareas..."
-                    style="padding: 8px 16px; border: 1px solid #E0E0E0; border-radius: 8px; background: #FFFFFF; font-size: 14px; color: #112B3C; min-width: 250px;">
-
-                <!-- Botón de filtros adicionales -->
-                <button class="filter-options-btn"
-                    style="padding: 8px; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; cursor: pointer; font-size: 16px;">
-                    ⚙️
-                </button>
-
-                <!-- Botón Nueva Tarea -->
-                <button class="add-task-btn" (click)="onAddTask()"
-                    style="display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: #F66B0E; color: #FFFFFF; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px;">
-                    ➕ Nueva Tarea
-                </button>
             </div>
         </div>
-    </div>
 
-    <!-- Contenido principal -->
-    <div class="tasks-content" style="padding: 32px; max-width: 1400px; margin: 0 auto;">
+        <!-- Contenido principal -->
+        <div class="tasks-content" style="padding: 32px; max-width: 1400px; margin: 0 auto;">
 
-        <!-- Grid de tareas -->
-        <div class="tasks-grid">
-            <div *ngFor="let task of filteredTasks" class="task-card" [class]="getTaskStatusClass(task.status)"
-                (click)="onTaskClick(task)">
+            <!-- Grid de tareas -->
+            <div class="tasks-grid">
+                <div *ngFor="let task of filteredTasks" class="task-card" [class]="getTaskStatusClass(task.status)"
+                    (click)="onTaskClick(task)">
 
-                <!-- Header de la tarjeta -->
-                <div class="task-header">
-                    <div class="task-status">
-                        <span class="status-icon">{{ getStatusIcon(task.status) }}</span>
-                        <span class="status-text" [class]="getTaskStatusClass(task.status)">
-                            {{ task.status === 'pending' ? 'Pendiente' :
-                            task.status === 'in-progress' ? 'En curso' : 'Completada' }}
-                        </span>
+                    <!-- Header de la tarjeta -->
+                    <div class="task-header">
+                        <div class="task-status">
+                            <span class="status-icon">{{ getStatusIcon(task.status) }}</span>
+                            <span class="status-text" [class]="getTaskStatusClass(task.status)">
+                                {{ task.status === 'pending' ? 'Pendiente' :
+                                task.status === 'in-progress' ? 'En curso' : 'Completada' }}
+                            </span>
+                        </div>
+                        <button class="task-menu-btn">
+                            <span>⋯</span>
+                        </button>
                     </div>
-                    <button class="task-menu-btn">
-                        <span>⋯</span>
-                    </button>
-                </div>
 
-                <!-- Contenido de la tarjeta -->
-                <div class="task-content">
-                    <h3 class="task-title">{{ task.title }}</h3>
-                    <p class="task-description">{{ task.description }}</p>
-                </div>
-
-                <!-- Pomodoros progress -->
-                <div class="task-pomodoros">
-                    <div class="pomodoros-info">
-                        <span class="pomodoros-icon">🍅</span>
-                        <span class="pomodoros-text">
-                            {{ task.pomodoros.completed }}/{{ task.pomodoros.total }} Pomodoros
-                        </span>
+                    <!-- Contenido de la tarjeta -->
+                    <div class="task-content">
+                        <h3 class="task-title">{{ task.title }}</h3>
+                        <p class="task-description">{{ task.description }}</p>
                     </div>
-                    <div class="pomodoros-progress">
-                        <div class="progress-bar"
-                            [style.width.%]="(task.pomodoros.completed / task.pomodoros.total) * 100">
+
+                    <!-- Pomodoros progress -->
+                    <div class="task-pomodoros">
+                        <div class="pomodoros-info">
+                            <span class="pomodoros-icon">🍅</span>
+                            <span class="pomodoros-text">
+                                {{ task.pomodoros.completed }}/{{ task.pomodoros.total }} Pomodoros
+                            </span>
+                        </div>
+                        <div class="pomodoros-progress">
+                            <div class="progress-bar"
+                                [style.width.%]="(task.pomodoros.completed / task.pomodoros.total) * 100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer de la tarjeta -->
+                    <div class="task-footer">
+                        <div class="task-meta">
+                            <span class="task-due-date">📅 {{ task.dueDate }}</span>
+                            <span class="task-category" [style.background-color]="getCategoryColor(task.category)">
+                                {{ task.category }}
+                            </span>
+                        </div>
+                        <div class="task-actions">
+                            <button class="action-btn play-btn" *ngIf="task.status !== 'completed'">
+                                <span>▶️</span>
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Footer de la tarjeta -->
-                <div class="task-footer">
-                    <div class="task-meta">
-                        <span class="task-due-date">📅 {{ task.dueDate }}</span>
-                        <span class="task-category" [style.background-color]="getCategoryColor(task.category)">
-                            {{ task.category }}
-                        </span>
-                    </div>
-                    <div class="task-actions">
-                        <button class="action-btn play-btn" *ngIf="task.status !== 'completed'">
-                            <span>▶️</span>
-                        </button>
-                    </div>
-                </div>
+            <!-- Estado vacío cuando no hay tareas -->
+            <div class="empty-state" *ngIf="filteredTasks.length === 0">
+                <div class="empty-icon">📋</div>
+                <h3 class="empty-title">No hay tareas</h3>
+                <p class="empty-description">
+                    No se encontraron tareas para el filtro seleccionado.
+                </p>
+                <button class="empty-action-btn" (click)="onAddTask()">
+                    Crear nueva tarea
+                </button>
             </div>
         </div>
-
-        <!-- Estado vacío cuando no hay tareas -->
-        <div class="empty-state" *ngIf="filteredTasks.length === 0">
-            <div class="empty-icon">📋</div>
-            <h3 class="empty-title">No hay tareas</h3>
-            <p class="empty-description">
-                No se encontraron tareas para el filtro seleccionado.
-            </p>
-            <button class="empty-action-btn" (click)="onAddTask()">
-                Crear nueva tarea
-            </button>
-        </div>
     </div>
-</div>

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar';
 
 interface StatMetric {
     icon: string;
@@ -17,11 +19,13 @@ interface ChartData {
 @Component({
     selector: 'app-statistics',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, SidebarComponent],
     templateUrl: './statistics.html',
     styleUrl: './statistics.scss'
 })
 export class StatisticsComponent {
+    @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
+
     // Métricas principales del header
     headerMetrics: StatMetric[] = [
         {
@@ -105,7 +109,7 @@ export class StatisticsComponent {
         'Completaste el 67% de tus ciclos planificados esta semana.'
     ];
 
-    constructor() { }
+    constructor(private router: Router) { }
 
     // Método para calcular la altura de las barras del gráfico
     getBarHeight(value: number): number {
@@ -119,5 +123,27 @@ export class StatisticsComponent {
         const focus = (this.focusBreakRatio.focus / 100) * circumference;
         const breakTime = circumference - focus;
         return `${focus} ${breakTime}`;
+    }
+
+    // Navigation method
+    onNavigationChange(route: string): void {
+        console.log('Navigation to:', route);
+        switch (route) {
+            case 'focus':
+                this.router.navigate(['/dashboard']);
+                break;
+            case 'statistics':
+                // Already on statistics page
+                break;
+            case 'tasks':
+                this.router.navigate(['/tasks']);
+                break;
+            case 'settings':
+                // Placeholder para página de configuración
+                console.log('Página de configuración no implementada aún');
+                break;
+            default:
+            // Stay on current page
+        }
     }
 }

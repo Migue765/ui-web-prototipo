@@ -1,5 +1,7 @@
-import { Component, signal, ViewEncapsulation } from '@angular/core';
+import { Component, signal, ViewEncapsulation, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar';
 
 export interface Task {
     id: string;
@@ -26,12 +28,14 @@ export interface TaskFilter {
 @Component({
     selector: 'app-tasks',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, SidebarComponent],
     templateUrl: './tasks.html',
     styleUrls: ['./tasks.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class TasksComponent {
+    @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
+
     // Filtros de tareas
     filters: TaskFilter[] = [
         { id: 'all', label: 'Todas', count: 24, active: true },
@@ -192,6 +196,30 @@ export class TasksComponent {
             'Base de datos': '#E67E22'
         };
         return colors[category] || '#95A5A6';
+    }
+
+    constructor(private router: Router) { }
+
+    // Navigation method
+    onNavigationChange(route: string): void {
+        console.log('Navigation to:', route);
+        switch (route) {
+            case 'focus':
+                this.router.navigate(['/dashboard']);
+                break;
+            case 'statistics':
+                this.router.navigate(['/statistics']);
+                break;
+            case 'tasks':
+                // Already on tasks page
+                break;
+            case 'settings':
+                // Placeholder para página de configuración
+                console.log('Página de configuración no implementada aún');
+                break;
+            default:
+            // Stay on current page
+        }
     }
 
     // Manejar clic en tarea

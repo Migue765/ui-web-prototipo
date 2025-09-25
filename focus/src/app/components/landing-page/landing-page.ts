@@ -13,17 +13,15 @@ export class LandingPage {
 
   // Navigation methods for buttons
   onLoginClick(): void {
-    // TODO: Navigate to login page when implemented
-    console.log('Navigate to login');
+    this.router.navigate(['/login']);
   }
 
   onSignupClick(): void {
-    // TODO: Navigate to signup page when implemented
     console.log('Navigate to signup');
   }
 
   onGetStartedClick(): void {
-    // TODO: Navigate to signup or demo page when implemented
-    console.log('Get started clicked');
+    // For now, navigate to login page
+    this.router.navigate(['/login']);
   }
 }

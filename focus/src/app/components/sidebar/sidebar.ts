@@ -20,23 +20,23 @@ export class SidebarComponent {
 
   menuItems: MenuItem[] = [
     {
-      icon: '🏠',
+      icon: 'assets/images/statistics/inicio-slide.png',
       label: 'Inicio',
       route: 'focus',
       active: true
     },
     {
-      icon: '📊',
+      icon: 'assets/images/statistics/estadistica-slide.png',
       label: 'Estadísticas',
       route: 'statistics'
     },
     {
-      icon: '📋',
+      icon: 'assets/images/statistics/task-slide.png',
       label: 'Tareas',
       route: 'tasks'
     },
     {
-      icon: '⚙️',
+      icon: 'assets/images/statistics/engrane-slide.png',
       label: 'Configuración',
       route: 'settings'
     }
@@ -60,8 +60,18 @@ export class SidebarComponent {
 
   // Método público para actualizar el estado activo desde el componente padre
   setActiveRoute(route: string): void {
+    console.log('Setting active route to:', route);
     this.menuItems.forEach(item => {
+      const wasActive = item.active;
       item.active = item.route === route;
+      if (wasActive !== item.active) {
+        console.log(`Item ${item.label} (${item.route}) changed from ${wasActive} to ${item.active}`);
+      }
     });
+    console.log('Current menu items state:', this.menuItems.map(item => ({ label: item.label, route: item.route, active: item.active })));
+  }
+
+  isImageIcon(icon: string): boolean {
+    return icon.includes('.png') || icon.includes('.jpg') || icon.includes('.jpeg') || icon.includes('.svg');
   }
 }

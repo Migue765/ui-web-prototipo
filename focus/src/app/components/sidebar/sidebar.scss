@@ -63,11 +63,11 @@
     }
 
     &.active {
-        background: rgba(246, 107, 14, 0.1);
-        border-right: 3px solid var(--accent-orange);
+        background: rgba(74, 144, 226, 0.1);
+        border-right: 4px solid #4A90E2;
 
         .nav-link {
-            color: var(--accent-orange);
+            color: #4A90E2;
         }
     }
 }
@@ -91,6 +91,15 @@
     font-size: 20px;
     width: 24px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .nav-icon-image {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
 }
 
 .nav-label {

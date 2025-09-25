@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { SidebarComponent } from '../sidebar/sidebar';
     templateUrl: './settings.html',
     styleUrl: './settings.scss'
 })
-export class SettingsComponent {
+export class SettingsComponent implements AfterViewInit {
     @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
 
     // Sección activa

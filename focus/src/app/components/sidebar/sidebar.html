@@ -13,7 +13,10 @@
             <li *ngFor="let item of menuItems" class="nav-item" [class.active]="item.active"
                 (click)="onMenuItemClick(item)">
                 <a class="nav-link">
-                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-icon">
+                        <img *ngIf="isImageIcon(item.icon)" [src]="item.icon" [alt]="item.label" class="nav-icon-image">
+                        <span *ngIf="!isImageIcon(item.icon)">{{ item.icon }}</span>
+                    </span>
                     <span class="nav-label">{{ item.label }}</span>
                 </a>
             </li>

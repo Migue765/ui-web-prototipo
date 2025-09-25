@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar';
@@ -27,7 +27,7 @@ interface ChartData {
     templateUrl: './statistics.html',
     styleUrl: './statistics.scss'
 })
-export class StatisticsComponent {
+export class StatisticsComponent implements AfterViewInit {
     @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
 
     // Métricas principales del header
@@ -142,6 +142,18 @@ export class StatisticsComponent {
     }
 
     // Navigation method
+    ngAfterViewInit() {
+        // Usar setTimeout para asegurar que el ViewChild esté disponible
+        setTimeout(() => {
+            if (this.sidebar) {
+                this.sidebar.setActiveRoute('statistics');
+                console.log('Setting active route to statistics');
+            } else {
+                console.log('Sidebar not available in statistics component');
+            }
+        }, 0);
+    }
+
     onNavigationChange(route: string): void {
         console.log('Navigation to:', route);
         switch (route) {

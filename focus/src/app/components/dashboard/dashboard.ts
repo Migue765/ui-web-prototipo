@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild } from '@angular/core';
+import { Component, signal, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar';
@@ -16,7 +16,7 @@ import { StatsCardComponent, StatData } from '../stats-card/stats-card';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
-export class Dashboard {
+export class Dashboard implements AfterViewInit {
   @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
 
   // Quick stats data
@@ -94,6 +94,16 @@ export class Dashboard {
 
   constructor(private router: Router) { }
 
+  ngAfterViewInit() {
+    // Asegurar que el dashboard esté marcado como activo
+    setTimeout(() => {
+      if (this.sidebar) {
+        this.sidebar.setActiveRoute('focus');
+        console.log('Setting active route to focus (dashboard)');
+      }
+    }, 0);
+  }
+
   onTimerComplete(): void {
     console.log('¡Timer completado!');
     // Aquí puedes agregar lógica para manejar la finalización del timer
@@ -113,17 +123,11 @@ export class Dashboard {
         // Lógica para ruido blanco
         break;
       case 'statistics':
-        this.navigateToStatistics();
+        this.router.navigate(['/statistics']);
         break;
     }
   }
 
-  // Navigation methods
-  navigateToStatistics(): void {
-    if (this.sidebar) {
-      this.sidebar.setActiveRoute('statistics');
-    }
-  }
 
   onNavigationChange(route: string): void {
     console.log('Navigation to:', route);

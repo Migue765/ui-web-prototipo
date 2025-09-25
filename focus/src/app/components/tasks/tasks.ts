@@ -43,10 +43,10 @@ export class TasksComponent {
 
     // Filtros de tareas
     filters: TaskFilter[] = [
-        { id: 'all', label: 'Todas', count: 24, active: true },
-        { id: 'pending', label: 'Pendientes', count: 12, active: false },
-        { id: 'in-progress', label: 'En curso', count: 7, active: false },
-        { id: 'completed', label: 'Hechas', count: 5, active: false }
+        { id: 'all', label: 'Todas', count: 18, active: true },
+        { id: 'pending', label: 'Pendientes', count: 8, active: false },
+        { id: 'in-progress', label: 'En curso', count: 6, active: false },
+        { id: 'completed', label: 'Hechas', count: 4, active: false }
     ];
 
     // Estado actual del filtro
@@ -124,6 +124,150 @@ export class TasksComponent {
             dueDate: 'Completada: 10 Sep',
             dateText: 'Completada: 10 Sep',
             category: 'Base de datos',
+            progress: 100
+        },
+        {
+            id: '7',
+            title: 'Configurar CI/CD',
+            description: 'Implementar pipeline de integración y despliegue continuo con GitHub Actions.',
+            status: 'in-progress',
+            priority: 'high',
+            pomodoros: { completed: 2, total: 6 },
+            dueDate: 'Vence: 22 Sep',
+            dateText: 'Vence: 22 Sep',
+            category: 'DevOps',
+            progress: 33
+        },
+        {
+            id: '8',
+            title: 'Crear dashboard analytics',
+            description: 'Desarrollar panel de control con métricas y gráficos en tiempo real.',
+            status: 'pending',
+            priority: 'medium',
+            pomodoros: { completed: 0, total: 8 },
+            dueDate: 'Vence: 30 Sep',
+            dateText: 'Vence: 30 Sep',
+            category: 'Frontend',
+            progress: 0
+        },
+        {
+            id: '9',
+            title: 'Migrar a microservicios',
+            description: 'Refactorizar arquitectura monolítica a microservicios con Docker.',
+            status: 'pending',
+            priority: 'high',
+            pomodoros: { completed: 0, total: 12 },
+            dueDate: 'Vence: 5 Oct',
+            dateText: 'Vence: 5 Oct',
+            category: 'Arquitectura',
+            progress: 0
+        },
+        {
+            id: '10',
+            title: 'Implementar autenticación 2FA',
+            description: 'Agregar autenticación de dos factores para mayor seguridad.',
+            status: 'in-progress',
+            priority: 'high',
+            pomodoros: { completed: 1, total: 4 },
+            dueDate: 'Vence: 28 Sep',
+            dateText: 'Vence: 28 Sep',
+            category: 'Seguridad',
+            progress: 25
+        },
+        {
+            id: '11',
+            title: 'Optimizar imágenes',
+            description: 'Comprimir y optimizar todas las imágenes del sitio web.',
+            status: 'completed',
+            priority: 'low',
+            pomodoros: { completed: 2, total: 2 },
+            dueDate: 'Completada: 8 Sep',
+            dateText: 'Completada: 8 Sep',
+            category: 'Performance',
+            progress: 100
+        },
+        {
+            id: '12',
+            title: 'Documentar API REST',
+            description: 'Crear documentación completa de todos los endpoints con Swagger.',
+            status: 'pending',
+            priority: 'medium',
+            pomodoros: { completed: 0, total: 5 },
+            dueDate: 'Vence: 2 Oct',
+            dateText: 'Vence: 2 Oct',
+            category: 'Documentación',
+            progress: 0
+        },
+        {
+            id: '13',
+            title: 'Configurar monitoreo',
+            description: 'Implementar sistema de monitoreo con Grafana y Prometheus.',
+            status: 'in-progress',
+            priority: 'medium',
+            pomodoros: { completed: 3, total: 7 },
+            dueDate: 'Vence: 26 Sep',
+            dateText: 'Vence: 26 Sep',
+            category: 'DevOps',
+            progress: 43
+        },
+        {
+            id: '14',
+            title: 'Refactorizar componentes',
+            description: 'Mejorar estructura y reutilización de componentes React.',
+            status: 'pending',
+            priority: 'medium',
+            pomodoros: { completed: 0, total: 6 },
+            dueDate: 'Vence: 3 Oct',
+            dateText: 'Vence: 3 Oct',
+            category: 'Frontend',
+            progress: 0
+        },
+        {
+            id: '15',
+            title: 'Implementar cache Redis',
+            description: 'Agregar sistema de cache con Redis para mejorar performance.',
+            status: 'in-progress',
+            priority: 'high',
+            pomodoros: { completed: 2, total: 5 },
+            dueDate: 'Vence: 24 Sep',
+            dateText: 'Vence: 24 Sep',
+            category: 'Backend',
+            progress: 40
+        },
+        {
+            id: '16',
+            title: 'Audit de seguridad',
+            description: 'Realizar auditoría completa de seguridad del sistema.',
+            status: 'pending',
+            priority: 'high',
+            pomodoros: { completed: 0, total: 8 },
+            dueDate: 'Vence: 1 Oct',
+            dateText: 'Vence: 1 Oct',
+            category: 'Seguridad',
+            progress: 0
+        },
+        {
+            id: '17',
+            title: 'Crear app móvil',
+            description: 'Desarrollar aplicación móvil nativa con React Native.',
+            status: 'pending',
+            priority: 'medium',
+            pomodoros: { completed: 0, total: 15 },
+            dueDate: 'Vence: 10 Oct',
+            dateText: 'Vence: 10 Oct',
+            category: 'Mobile',
+            progress: 0
+        },
+        {
+            id: '18',
+            title: 'Configurar backup automático',
+            description: 'Implementar sistema de respaldo automático de base de datos.',
+            status: 'completed',
+            priority: 'high',
+            pomodoros: { completed: 3, total: 3 },
+            dueDate: 'Completada: 5 Sep',
+            dateText: 'Completada: 5 Sep',
+            category: 'DevOps',
             progress: 100
         }
     ];

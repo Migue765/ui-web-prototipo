@@ -1,5 +1,6 @@
 import { Component, signal, ViewEncapsulation, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar';
 
@@ -14,6 +15,7 @@ export interface Task {
         total: number;
     };
     dueDate: string;
+    dateText: string;
     category: string;
     progress: number;
 }
@@ -28,13 +30,16 @@ export interface TaskFilter {
 @Component({
     selector: 'app-tasks',
     standalone: true,
-    imports: [CommonModule, SidebarComponent],
+    imports: [CommonModule, FormsModule, SidebarComponent],
     templateUrl: './tasks.html',
     styleUrls: ['./tasks.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class TasksComponent {
     @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
+
+    // Término de búsqueda
+    searchTerm: string = '';
 
     // Filtros de tareas
     filters: TaskFilter[] = [
@@ -55,10 +60,11 @@ export class TasksComponent {
             description: 'Crear mockups y prototipos para la nueva aplicación móvil del cliente.',
             status: 'in-progress',
             priority: 'high',
-            pomodoros: { completed: 3, total: 6 },
-            dueDate: 'Vence 15 Sep',
+            pomodoros: { completed: 3, total: 5 },
+            dueDate: 'Vence: 15 Sep',
+            dateText: 'Vence: 15 Sep',
             category: 'Diseño',
-            progress: 50
+            progress: 60
         },
         {
             id: '2',
@@ -67,7 +73,8 @@ export class TasksComponent {
             status: 'pending',
             priority: 'medium',
             pomodoros: { completed: 0, total: 3 },
-            dueDate: 'Vence 18 Sep',
+            dueDate: 'Vence: 18 Sep',
+            dateText: 'Vence: 18 Sep',
             category: 'Desarrollo',
             progress: 0
         },
@@ -78,7 +85,8 @@ export class TasksComponent {
             status: 'pending',
             priority: 'high',
             pomodoros: { completed: 0, total: 8 },
-            dueDate: 'Vence 25 Sep',
+            dueDate: 'Vence: 25 Sep',
+            dateText: 'Vence: 25 Sep',
             category: 'Backend',
             progress: 0
         },
@@ -89,7 +97,8 @@ export class TasksComponent {
             status: 'in-progress',
             priority: 'medium',
             pomodoros: { completed: 1, total: 4 },
-            dueDate: 'Vence 20 Sep',
+            dueDate: 'Vence: 20 Sep',
+            dateText: 'Vence: 20 Sep',
             category: 'Testing',
             progress: 25
         },
@@ -100,7 +109,8 @@ export class TasksComponent {
             status: 'completed',
             priority: 'high',
             pomodoros: { completed: 2, total: 2 },
-            dueDate: 'Completado 12 Sep',
+            dueDate: 'Completada: 12 Sep',
+            dateText: 'Completada: 12 Sep',
             category: 'Reunión',
             progress: 100
         },
@@ -110,8 +120,9 @@ export class TasksComponent {
             description: 'Mejorar consultas SQL y añadir índices para mejor rendimiento.',
             status: 'completed',
             priority: 'medium',
-            pomodoros: { completed: 5, total: 5 },
-            dueDate: 'Completado 10 Sep',
+            pomodoros: { completed: 6, total: 6 },
+            dueDate: 'Completada: 10 Sep',
+            dateText: 'Completada: 10 Sep',
             category: 'Base de datos',
             progress: 100
         }
@@ -231,5 +242,83 @@ export class TasksComponent {
     onAddTask(): void {
         console.log('Add new task');
         // Aquí puedes agregar lógica para crear nueva tarea
+    }
+
+    // Métodos para la nueva interfaz
+    getStatusClass(status: string): string {
+        return status;
+    }
+
+    getStatusDotClass(status: string): string {
+        return status;
+    }
+
+    getStatusBadgeClass(status: string): string {
+        return status;
+    }
+
+    getStatusText(status: string): string {
+        switch (status) {
+            case 'pending':
+                return 'Pendiente';
+            case 'in-progress':
+                return 'En curso';
+            case 'completed':
+                return 'Completada';
+            default:
+                return '';
+        }
+    }
+
+    getPomodoroIconClass(status: string): string {
+        return `pomodoro-icon ${status}`;
+    }
+
+    getPomodoroIconColor(status: string): string {
+        switch (status) {
+            case 'in-progress':
+                return '#F66B0E';
+            case 'pending':
+                return '#9CA3AF';
+            case 'completed':
+                return '#22C55E';
+            default:
+                return '#9CA3AF';
+        }
+    }
+
+    getCategoryClass(category: string): string {
+        return category.toLowerCase().replace(/\s+/g, '-');
+    }
+
+    getProgressBarClass(status: string): string {
+        return status;
+    }
+
+    getProgressPercentage(task: Task): number {
+        if (task.pomodoros.total === 0) return 0;
+        return (task.pomodoros.completed / task.pomodoros.total) * 100;
+    }
+
+    getPlayButtonClass(status: string): string {
+        return status;
+    }
+
+    getPlayButtonColor(status: string): string {
+        switch (status) {
+            case 'in-progress':
+                return '#F66B0E';
+            case 'pending':
+                return '#9CA3AF';
+            default:
+                return '#9CA3AF';
+        }
+    }
+
+    ngAfterViewInit() {
+        // Actualizar el estado activo del sidebar
+        if (this.sidebar) {
+            this.sidebar.setActiveRoute('tasks');
+        }
     }
 }

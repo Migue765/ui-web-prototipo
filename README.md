@@ -38,7 +38,7 @@ La aplicación se recargará automáticamente cuando modifiques cualquier archiv
 
 ## Video demostrativo
 
-🎥 [Ver demo de la aplicación](https://youtu.be/HUzwjdth54o)
+🎥 [Video demo web](https://youtu.be/HUzwjdth54o)
 
 ---
 

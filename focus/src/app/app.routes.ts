@@ -4,6 +4,7 @@ import { Login } from './components/login/login';
 import { Dashboard } from './components/dashboard/dashboard';
 import { StatisticsComponent } from './components/statistics/statistics';
 import { TasksComponent } from './components/tasks/tasks';
+import { SettingsComponent } from './components/settings/settings';
 
 export const routes: Routes = [
     { path: '', component: LandingPage },
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'dashboard', component: Dashboard },
     { path: 'statistics', component: StatisticsComponent },
     { path: 'tasks', component: TasksComponent },
+    { path: 'settings', component: SettingsComponent },
     { path: '**', redirectTo: '' }
 ];

@@ -92,7 +92,7 @@ export class Dashboard {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   onTimerComplete(): void {
     console.log('¡Timer completado!');
@@ -138,11 +138,10 @@ export class Dashboard {
         this.router.navigate(['/tasks']);
         break;
       case 'settings':
-        // Placeholder para página de configuración
-        console.log('Página de configuración no implementada aún');
+        this.router.navigate(['/settings']);
         break;
       default:
-        // Stay on current page
+      // Stay on current page
     }
   }
 }

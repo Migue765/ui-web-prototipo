@@ -155,8 +155,7 @@ export class StatisticsComponent {
                 this.router.navigate(['/tasks']);
                 break;
             case 'settings':
-                // Placeholder para página de configuración
-                console.log('Página de configuración no implementada aún');
+                this.router.navigate(['/settings']);
                 break;
             default:
             // Stay on current page

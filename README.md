@@ -17,7 +17,7 @@ Una aplicación web de productividad desarrollada con Angular para gestión de t
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/Migue765/ui-web-prototipo.git
    cd ui-web-prototipo
    ```
 

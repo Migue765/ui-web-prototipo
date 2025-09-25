@@ -33,4 +33,8 @@ export class StatsCardComponent {
   get iconClasses(): string {
     return `stats-icon stats-icon--${this.stat.type}`;
   }
+
+  isImageIcon(icon: string): boolean {
+    return icon.includes('.png') || icon.includes('.jpg') || icon.includes('.jpeg') || icon.includes('.svg');
+  }
 }

@@ -7,7 +7,8 @@
                 <div *ngIf="stat.subtitle" class="stats-subtitle">{{ stat.subtitle }}</div>
             </div>
             <div [class]="iconClasses">
-                {{ stat.icon }}
+                <img *ngIf="isImageIcon(stat.icon)" [src]="stat.icon" [alt]="stat.title" class="icon-image">
+                <span *ngIf="!isImageIcon(stat.icon)">{{ stat.icon }}</span>
             </div>
         </div>
     </div>

@@ -127,6 +127,15 @@
     font-size: 24px;
     margin-bottom: 8px;
     color: #F66B0E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .action-icon-image {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
   }
 
   .action-label {
@@ -271,6 +280,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .task-icon-image {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
 }
 
 .task-title {

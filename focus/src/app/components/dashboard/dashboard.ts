@@ -25,21 +25,21 @@ export class Dashboard {
       type: 'completed',
       title: 'Ciclos Completados',
       value: '8',
-      icon: '🔄',
+      icon: 'assets/images/statistics/reload-home.png',
       color: 'var(--accent-orange)'
     },
     {
       type: 'time',
       title: 'Tiempo Enfocado',
       value: '3h 20m',
-      icon: '🕐',
+      icon: 'assets/images/statistics/clock-home.png',
       color: '#4A90E2'
     },
     {
       type: 'tasks',
       title: 'Tareas Completadas',
       value: '12',
-      icon: '✓',
+      icon: 'assets/images/statistics/check-home.png',
       color: '#7ED321'
     }
   ];
@@ -57,36 +57,36 @@ export class Dashboard {
       id: '1',
       title: 'Revisar emails',
       completed: true,
-      icon: '✅'
+      icon: 'assets/images/statistics/completado.png'
     },
     {
       id: '2',
       title: 'Llamada con cliente',
       completed: true,
-      icon: '✅'
+      icon: 'assets/images/statistics/completado.png'
     },
     {
       id: '3',
       title: 'Completar informe',
       completed: false,
-      icon: '🔄'
+      icon: 'assets/images/statistics/en curso.png'
     }
   ];
 
   // Quick action buttons
   quickActions = [
     {
-      icon: '➕',
+      icon: 'assets/images/statistics/new-sesion-icon.png',
       label: 'Nueva Sesión',
       action: 'new-session'
     },
     {
-      icon: '🔊',
+      icon: 'assets/images/statistics/ruido-blanco-icon.png',
       label: 'Ruido Blanco',
       action: 'white-noise'
     },
     {
-      icon: '📊',
+      icon: 'assets/images/statistics/estadistica-icon.png',
       label: 'Estadísticas',
       action: 'statistics'
     }
@@ -143,5 +143,9 @@ export class Dashboard {
       default:
       // Stay on current page
     }
+  }
+
+  isImageIcon(icon: string): boolean {
+    return icon.includes('.png') || icon.includes('.jpg') || icon.includes('.jpeg') || icon.includes('.svg');
   }
 }

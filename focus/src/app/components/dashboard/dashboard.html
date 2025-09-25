@@ -25,7 +25,11 @@
                 <div class="quick-actions">
                     <button *ngFor="let action of quickActions" class="quick-action-btn"
                         (click)="onQuickAction(action.action)">
-                        <span class="action-icon">{{ action.icon }}</span>
+                        <span class="action-icon">
+                            <img *ngIf="isImageIcon(action.icon)" [src]="action.icon" [alt]="action.label"
+                                class="action-icon-image">
+                            <span *ngIf="!isImageIcon(action.icon)">{{ action.icon }}</span>
+                        </span>
                         <span class="action-label">{{ action.label }}</span>
                     </button>
                 </div>
@@ -64,7 +68,11 @@
                     <h3 class="section-title">Tareas Recientes</h3>
                     <div class="tasks-list">
                         <div *ngFor="let task of recentTasks" class="task-item" [class.completed]="task.completed">
-                            <span class="task-icon">{{ task.icon }}</span>
+                            <span class="task-icon">
+                                <img *ngIf="isImageIcon(task.icon)" [src]="task.icon" [alt]="task.title"
+                                    class="task-icon-image">
+                                <span *ngIf="!isImageIcon(task.icon)">{{ task.icon }}</span>
+                            </span>
                             <span class="task-title">{{ task.title }}</span>
                         </div>
                     </div>

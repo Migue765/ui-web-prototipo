@@ -100,23 +100,27 @@
     font-size: 24px;
     flex-shrink: 0;
 
+    .icon-image {
+        object-fit: contain;
+    }
+
     &--completed {
-        background: rgba(255, 255, 255, 0.2);
+        background: transparent;
         color: var(--white);
     }
 
     &--time {
-        background: rgba(255, 255, 255, 0.2);
+        background: transparent;
         color: var(--white);
     }
 
     &--tasks {
-        background: rgba(255, 255, 255, 0.2);
+        background: transparent;
         color: var(--white);
     }
 
     &--progress {
-        background: rgba(32, 83, 117, 0.1);
+        background: transparent;
         color: var(--primary-medium);
     }
 }
